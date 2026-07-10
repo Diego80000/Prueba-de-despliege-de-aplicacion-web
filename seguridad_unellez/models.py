@@ -1,5 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
 from django.contrib.auth.models import User
 
 class Guardia(models.Model):
@@ -95,31 +94,3 @@ class Solicitud(models.Model):
 
     def __str__(self):
         return f"Solicitud de {self.get_tipo_display()} - {self.guardia.nombre} ({self.get_estado_display()})"
-=======
-
-class Guardia(models.Model):
-    # Campos que ya tenías
-    nombre = models.CharField(max_length=100)
-    cedula = models.CharField(max_length=10)
-    turno = models.CharField(max_length=20)
-    area_asignada = models.CharField(max_length=100)
-    fecha_registro = models.DateField(auto_now_add=True)
-
-    # --- NUEVOS CAMPOS ---
-    horas_trabajadas = models.PositiveIntegerField(default=0, verbose_name="Horas Totales")
-    dias_trabajados = models.PositiveIntegerField(default=0, verbose_name="Días Cumplidos")
-    
-    ESTADO_CHOICES = [
-        ('Activo', 'Activo'),
-        ('Pendiente', 'Pendiente'),
-        ('Inactivo', 'Inactivo'),
-    ]
-    estatus = models.CharField(
-        max_length=20, 
-        choices=ESTADO_CHOICES, 
-        default='Activo'
-    )
-
-    def __str__(self):
-        return f"{self.nombre} - {self.area_asignada}"
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c

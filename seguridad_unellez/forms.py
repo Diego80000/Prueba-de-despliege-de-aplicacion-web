@@ -1,18 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
-<<<<<<< HEAD
 from .models import Guardia, Incidencia, Solicitud
-=======
-from .models import Guardia
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c
 
 class GuardiaForm(forms.ModelForm):
     class Meta:
         model = Guardia
-<<<<<<< HEAD
-=======
-        # Incluimos los campos básicos y los nuevos de control académico
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c
         fields = [
             'nombre', 
             'cedula', 
@@ -40,19 +32,11 @@ class GuardiaForm(forms.ModelForm):
             'area_asignada': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Laboratorios'}),
             'horas_trabajadas': forms.NumberInput(attrs={'class': 'form-control', 'min': '0'}),
             'dias_trabajados': forms.NumberInput(attrs={'class': 'form-control', 'min': '0'}),
-<<<<<<< HEAD
             'estatus': forms.Select(choices=Guardia.ESTATUS_CHOICES, attrs={'class': 'form-select'}),
         }
 
 
 class RegistroUsuarioForm(forms.ModelForm):
-=======
-            'estatus': forms.Select(attrs={'class': 'form-select'}), # Usamos Select para las opciones del modelo
-        }
-
-class RegistroUsuarioForm(forms.ModelForm):
-    # Campos de contraseña con validación de seguridad
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c
     password = forms.CharField(
         label='Contraseña',
         widget=forms.PasswordInput(attrs={
@@ -94,7 +78,6 @@ class RegistroUsuarioForm(forms.ModelForm):
 
         if p1 and p2 and p1 != p2:
             self.add_error('password2', "Las contraseñas no coinciden.")
-<<<<<<< HEAD
         return cleaned_data
 
 
@@ -168,6 +151,3 @@ class RegistroGuardiaForm(forms.ModelForm):
         if commit:
             guardia.save()
         return guardia
-=======
-        return cleaned_data
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c

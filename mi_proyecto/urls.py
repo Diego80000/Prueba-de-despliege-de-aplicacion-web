@@ -3,7 +3,6 @@ from django.urls import path
 from seguridad_unellez import views
 from django.contrib.auth import views as auth_views
 
-<<<<<<< HEAD
 # 🌟 IMPORTACIONES CLAVE PARA SOPORTAR ARCHIVOS MULTIMEDIA
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,42 +13,20 @@ urlpatterns = [
     # 🔐 LOGIN Y AUTENTICACIÓN
     path('', views.login_view, name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-=======
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    
-    # Login y Logout
-    path('', auth_views.LoginView.as_view(template_name='seguridad_unellez/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-
-    # Registro de Usuarios
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c
     path('registrar/', views.registrar_usuario, name='registrar_usuario'),
 
     # --- FLUJO DE RECUPERACIÓN DE CONTRASEÑA ---
     path('recuperar/', auth_views.PasswordResetView.as_view(
         template_name='seguridad_unellez/password_reset.html',
-<<<<<<< HEAD
         success_url='/recuperar/enviado/'
     ), name='password_reset'),
     path('recuperar/enviado/', auth_views.PasswordResetDoneView.as_view(
         template_name='seguridad_unellez/password_reset_done.html'
     ), name='password_reset_done'),
-=======
-        email_template_name='seguridad_unellez/password_reset_email.html',
-        success_url='/recuperar/enviado/'
-    ), name='password_reset'),
-
-    path('recuperar/enviado/', auth_views.PasswordResetDoneView.as_view(
-        template_name='seguridad_unellez/password_reset_done.html'
-    ), name='password_reset_done'),
-
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c
     path('recuperar/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
         template_name='seguridad_unellez/password_reset_confirm.html',
         success_url='/recuperar/completo/'
     ), name='password_reset_confirm'),
-<<<<<<< HEAD
     path('recuperar/completo/', auth_views.PasswordResetCompleteView.as_view(
         template_name='seguridad_unellez/password_reset_complete.html'
     ), name='password_reset_complete'),
@@ -86,17 +63,3 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-=======
-
-    path('recuperar/completo/', auth_views.PasswordResetCompleteView.as_view(
-        template_name='seguridad_unellez/password_reset_complete.html'
-    ), name='password_reset_complete'),
-    # ------------------------------------------
-
-    # CRUD de Guardias
-    path('guardias/', views.lista_guardias, name='lista_guardias'),
-    path('guardias/nuevo/', views.crear_guardia, name='crear_guardia'),
-    path('guardias/editar/<int:id>/', views.editar_guardia, name='editar_guardia'),
-    path('guardias/eliminar/<int:id>/', views.eliminar_guardia, name='eliminar_guardia'),
-]
->>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c
