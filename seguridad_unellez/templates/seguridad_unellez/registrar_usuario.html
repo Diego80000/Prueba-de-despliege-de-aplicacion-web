@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light py-5">
+    <div class="container">
+        <div class="card mx-auto shadow" style="max-width: 500px;">
+            <div class="card-body p-4">
+                <h3 class="text-center mb-4">Registro de Nuevo Oficial</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label>Nombre Completo</label>
+                        {{ form.nombre }}
+                    </div>
+                    <div class="mb-3">
+                        <label>Cédula</label>
+                        {{ form.cedula }}
+                    </div>
+                    <div class="mb-3">
+                        <label>Área Asignada</label>
+                        {{ form.area_asignada }}
+                    </div>
+                    <div class="mb-3">
+                        <label>Turno</label>
+                        {{ form.turno }}
+                    </div>
+                    <div class="mb-3">
+                        <label>Contraseña</label>
+                        {{ form.password }}
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Registrar Oficial</button>
+                        <a href="{% url 'lista_guardias' %}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
