@@ -11,4 +11,8 @@ Sistema de control académico y registro de guardias para Ingeniería en Inform�
 2. Crear entorno virtual: `python -m venv venv`.
 3. Instalar dependencias: `pip install -r requirements.txt`.
 4. Migrar base de datos: `python manage.py migrate`.
+<<<<<<< HEAD
 5. Ejecutar: `python manage.py runserver`.git add .
+=======
+5. Ejecutar: `python manage.py runserver`.
+>>>>>>> 090201e781a4e766aaa226bc99f6e51436e1d25c
